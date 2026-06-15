@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+text-align:center;
+color:white;
+}
+
+.container{
+width:90%;
+max-width:700px;
+padding:20px;
+z-index:2;
+}
+
+h1{
+margin-bottom:20px;
+}
+
+.message{
+font-size:1.3rem;
+line-height:1.8;
+animation:fade 1s ease;
+}
+
+button{
+margin-top:30px;
+padding:15px 35px;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+background:white;
+color:#ff4f81;
+font-weight:bold;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.gift{
+font-size:120px;
+cursor:pointer;
+animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:float 8s linear infinite;
+opacity:0.8;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+.final{
+font-size:1.5rem;
+line-height:2;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="content">
+
+<h1>A Special Gift For You ❤️</h1>
+
+<div class="gift" onclick="nextScreen()">🎁</div>
+
+<p>Tap the gift, my love 🥺</p>
+
+</div>
+
+</div>
+
+<script>
+
+const screens = [
+
+`
+<h1>💌</h1>
+<div class="message">
+Before you continue...<br><br>
+Promise me you'll read till the end. ❤️
+</div>
+<button onclick="nextScreen()">I Promise 🥺</button>
+`,
+
+`
+<div class="message">
+Sometimes I wonder if you truly know
+how much you mean to me... ❤️
+</div>
+<button onclick="nextScreen()">Tell Me ❤️</button>
+`,
+
+`
+<div class="message">
+You're not just my girlfriend.<br><br>
+
+You're the first person I want to tell
+when something good happens. 🥰<br><br>
+
+You're the person I miss
+even after talking for hours.
+</div>
+<button onclick="nextScreen()">Continue ✨</button>
+`,
+
+`
+<div class="message">
+I know there are times when you feel
+that I love you less... 🥺<br><br>
+
+Maybe because I don't always find
+the perfect words.<br><br>
+
+But if you could spend one minute
+inside my heart...
+you'd never doubt my love again. ❤️
+</div>
+<button onclick="nextScreen()">One Last Thing ❤️</button>
+`,
+
+`
+<div class="message">
+My favourite notification? 📱❤️<br>
+YOU.<br><br>
+
+My favourite smile? 😊❤️<br>
+YOURS.<br><br>
+
+My favourite person? 🥰❤️<br>
+ALWAYS YOU.
+</div>
+<button onclick="nextScreen()">Final Surprise 🎁</button>
+`,
+
+`
+<div class="final">
+❤️❤️❤️<br><br>
+
+To My Love,<br><br>
+
+If there is one thing
+I never want you to question...<br><br>
+
+It's my love for you. ❤️<br><br>
+
+I may not always express it perfectly.<br>
+I may not always find the right words.<br><br>
+
+But every single day...<br><br>
+
+I choose you.<br>
+Again.<br>
+And again.<br>
+And again. ❤️<br><br>
+
+No matter what happens.<br><br>
+
+💖 I LOVE YOU 💖<br><br>
+
+More than I can explain.<br>
+More than I can show.<br>
+More than you think. ❤️<br><br>
+
+Forever Yours,<br>
+<b>Prithu ❤️</b><br><br>
+
+🥺 Whenever you feel that I love you less,
+come back to this page and remember:
+You are one of the best things
+that ever happened to me. ❤️
+</div>
+`
+];
+
+let current = 0;
+
+function nextScreen(){
+if(current < screens.length){
+document.getElementById('content').innerHTML = screens[current];
+current++;
+}
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(20+Math.random()*20)+"px";
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+}
+
+setInterval(createHeart,400);
+
+</script>
+
+</body>
+</html>
